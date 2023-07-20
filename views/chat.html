@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chats</title>
+    <link rel="stylesheet" href="/css/chat.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <nav class="main-header_nav">
+            <ul class="main-header_nav_list">
+                <li class="main-header_nav_item"><a href="login" class="active">Home</a></li>
+                <li class="main-header_nav_item"><a href="contactus">Contact US</a></li>
+            </ul>
+        </nav>
+    </header>
+    <form action="/" method="POST" class="my-form">
+        <h2>Write your message here.</h2>
+        <input  type="hidden" id="uname" name="uname">
+        <input type="text" name="message" id="message" class="msg">
+        <button type="submit" class="btn">Send</button>
+    </form>
+    <script src="message.js"></script>
+    
+
+</body>
+</html>
