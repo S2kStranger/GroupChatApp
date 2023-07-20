@@ -2,6 +2,9 @@ const express=require('express');
 const app=express();
 const path=require('path');
 const bodyParser=require('body-parser');
+const errorPage=require('./controllers/error404');
+const contactPage=require('./controllers/controllercontactus');
+const successPage=require('./controllers/controllersuccess');
 
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -13,17 +16,11 @@ app.use(loginPage);
 const chatPage=require('./chat.js');
 app.use(chatPage);
 
-app.get('/contactus',(req,res,next) => {
-    res.sendFile(path.join(__dirname,'views','contactus.html'));
-})
+app.get('/contactus',contactPage.contactUs);
 
-app.post('/success',(req,res,next) => {
-    res.sendFile(path.join(__dirname,'views','success.html'));
-})
+app.post('/success',successPage.success);
 
 
-// app.use((req,res,next) => {
-//     res.status(404).sendFile(path.join(__dirname,'views','404Error.html'));
-// })
+app.use(errorPage.error);
 
 app.listen(3000);
